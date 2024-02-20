@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/hello.js", "src/app/api/card/fetchcards/route.rts", "src/app/contexts/cardContextProvider.ts", "src/app/contexts/cardContext.tsx"],
   "exclude": ["node_modules"]
 }

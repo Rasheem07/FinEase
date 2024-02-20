@@ -2,32 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --primary-color: #299D91;
+  --secondary-color: #525256;
+  --default-black: #191919;
+  --gray-1: #666666;
+  --gray-2: #878787;
+  --gray-3: #9F9F9F; 
+  --gray-4: #D1D1D1; 
+  --gray-5: #E8E8E8; 
+  --gray-6: #F3F3F3; 
+  --BG3: rgba(255, 255, 255, 0.8);
+  --BG2: rgba(255, 255, 255, 0.7);
+  --BG1: rgba(210, 210, 210, 0.25);
+  --red: #E73D1C;
+  --green: #4DAF6E;
+  --mainBG: #F4F5F7;
+  --page: #1E1E1E;
+  --label-color: #191D23;
+  --line-height: 24px;
+  --md: 16px;
+  --shadow1: rgba(76, 103, 100, 0.1) 0 20px 25px 0;
+  --shadow2: rgba(76, 103, 100, 0.05) 0 12px 16px 0;
+  --sha: rgba(2, 3, 3, 0) -1049px -732px 358px 0, rgba(2, 3, 3, 0.01) -671px -469px 327px 0, rgba(2, 3, 3, 0.05) -377px -264px 276px 0, rgba(2, 3, 3, 0.09) -168px -117px 205px 0, rgba(2, 3, 3, 0.1) -42px -29px 113px 0, rgba(2, 3, 3, 0.1) 0 0 0 0;
+}  
+
+.pie {
+  margin: 0 auto;
+  position: relative;
+  width: 130px;
+  height: 65px;
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.pie::after {
+  transform: rotate(-60deg);      /*  set rotation degree  */
+  background-color: var(--primary-color);
+  transform-origin: center bottom;
+}
+
+.pie::before {
+  border: 20px solid var(--gray-4);
+}
+
+.pie .overlay{
+  top: 20px;                      /*  match border width  */
+  left: 20px;                     /*  match border width  */
+  width: calc(100% - 40px);       /*  match border width times 2  */
+  height: calc(200% - 40px);      /*  match border width times 2  */
+  border-radius: 100%;
+  background: white;
+  z-index: 1;                     /*  move it on top of the pseudo elements  */
+}
+
+.pie *,
+.pie::before,
+.pie::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  box-sizing: border-box;
+}
+
+.scroll-hide::-webkit-scrollbar{
+   display: none;
+}
+
+.loading::before{
+  content: '';
+  color: #299D91;
+  position: absolute;
+}
+.loading::after{
+  content: '';
+  color: #299D91;
+  position: absolute;
+  animation: load 2s ease-in-out infinite .2s;
+}
+
+@keyframes load{
+  35%{
+    content: '..';
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  70%{
+    content: '...';
+  }
+  100%{
+    content: '.';
   }
 }

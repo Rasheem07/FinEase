@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  email        String     @unique
+  password     String
+  bankAccounts Accounts[]
+}
+
+model Accounts {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  bank           String
+  branch         String
+  accountNo      Int
+  type           String
+  totalAmount    Int
+  targetAmount   Int?
+  achievedAmount Int?
+  user           User             @relation(fields: [userID], references: [id])
+  userID         String           @db.ObjectId
+  expensesGoals  expensesGoals[]
+  UpcommingBills UpcommingBills[]
+  transactions   transactions[]
+}
+
+model expensesGoals {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  category  String
+  amount    Int
+  account   Accounts @relation(fields: [accountID], references: [id])
+  accountID String   @db.ObjectId
+}
+
+model UpcommingBills {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  dueDate    String
+  item       String
+  itemDesc   String
+  lastCharge String?
+  amount     Int
+  account    Accounts @relation(fields: [accountID], references: [id])
+  accountID  String   @db.ObjectId
+}
+
+model transactions {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  item      String
+  shop      String
+  date      DateTime
+  method    String
+  amount    Float
+  categroy  String
+  account   Accounts @relation(fields: [accountID], references: [id])
+  accountID String   @db.ObjectId
+}
+
+model expenses {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  category   String
+  amount Float
+  aggregate Int
+  expenses Json[]
+}
+
