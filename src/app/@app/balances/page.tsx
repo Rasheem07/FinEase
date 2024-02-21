@@ -2,11 +2,18 @@
 import BalanceCardDetailed from "@/app/components/balances/balanceCard";
 import { fetchCards } from "@/app/services/fetchCards";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Balances() {
+  const [cards, setCards] = useState([]);
 
-  const Cards: any = fetchCards(); 
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedCards = await fetchCards();
+      setCards(fetchedCards);
+    };
+    fetchData();
+  }, []);
 
   return (
       <div className="mx-4 my-4">
@@ -14,7 +21,7 @@ export default function Balances() {
           balances
         </h2>
         <div className="grid grid-flow-row grid-cols-3 gap-3">
-          {Cards.map((card: any) => (
+          {cards.map((card: any) => (
             <BalanceCardDetailed
               key={card.id}
               id={card.id}
