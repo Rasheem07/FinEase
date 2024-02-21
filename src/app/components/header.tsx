@@ -39,7 +39,7 @@ export default function Header() {
             aria-selected="false"
           />
           <div className="basis-[10%]">
-            <Image src="/search.png" alt="search" />
+            <img src="/search.png" alt="search" />
           </div>
         </div>
       </div>

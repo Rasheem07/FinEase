@@ -7,14 +7,15 @@ import React, { useEffect, useState } from "react";
 export default function Balances() {
   const [cards, setCards] = useState([]);
 
-  useEffect(() => {
     const fetchData = async () => {
       const fetchedCards = await fetchCards();
       setCards(fetchedCards);
     };
-    fetchData();
-  }, []);
-
+  
+    useEffect(() => {
+      fetchData();
+    }, [])
+    
   return (
       <div className="mx-4 my-4">
         <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">

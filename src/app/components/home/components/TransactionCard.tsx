@@ -18,7 +18,7 @@ export default function TransactionCard({
     <div className="flex flex-row items-center justify-between w-full min-h-[60px] bg-transparent px-2 py-3">
       <div className="flex flex-row items-center">
         <div className="flex flex-col h-[40px] w-[40px] bg-BG1 p-2 rounded-md shadow-inner">
-          <Image src={imgURL} alt={name} />
+          <img src={imgURL} alt={name} />
         </div>
         <div className="flex flex-col mx-3">
           <h4 className="text-[16px] leading-[24px] font-semibold text-default-black capitalize">

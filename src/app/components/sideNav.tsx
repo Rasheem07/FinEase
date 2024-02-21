@@ -76,7 +76,7 @@ export default function SideNav() {
             </button>
            <span className="h-[1.5px] bg-secondary-color w-full px-3 my-2"/>
            <div className="flex flex-row items-center my-3 justify-between flex-auto w-full min-w-full">
-             <Image src="/logo.png" alt="user" className="h-[30px] w-[30px] object-contain shadow-sm rounded-full" />
+             <img src="/logo.png" alt="user" className="h-[30px] w-[30px] object-contain shadow-sm rounded-full" />
              <div className="flex flex-col flex-auto justify-between mx-3">
                 <h3 className="text-[14px] leading-4 text-gray4 tracking-wide capitalize font-medium block cursor-pointer">{name}</h3>
                 <span className="cursor-pointer text-[12px] text-gray3 font-sans">edit profile</span>
