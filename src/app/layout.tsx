@@ -36,7 +36,7 @@ export default function RootLayout({
           <main className="flex flex-row m-0 p-0 min-h-[100vh] max-w-[100vw] min-w-[100vw] basis-full transition-transform">
             {location !== "/signup" && location !== "/login" && <SideNav />}
             <div className=" min-h-[100vh] bg-mainBG flex-auto ">
-              <Header />
+              {location !== "/signup" && location !== "/login" && <Header />}
               {location === "/" ? children : app}
             </div>
           </main>
