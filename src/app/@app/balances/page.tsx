@@ -4,9 +4,9 @@ import { fetchCards } from "@/app/services/fetchCards";
 import Link from "next/link";
 import React from "react";
 
-export default async function Balances() {
+export default function Balances() {
 
-  const Cards = await fetchCards(); 
+  const Cards: any = fetchCards(); 
 
   return (
       <div className="mx-4 my-4">

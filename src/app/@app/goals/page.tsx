@@ -34,7 +34,7 @@ export default function Page() {
               </div>
               <div className="flex flex-col">
                 <h2 className="text-sm font-semibold capitalize text-gray2">
-                  this month's target:
+                  this month&apos;s target:
                 </h2>
                 <span className="text-sm font-bold text-default-black my-1">
                   $20000

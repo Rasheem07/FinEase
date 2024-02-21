@@ -2,6 +2,7 @@
 import React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import Image from "next/image";
 
 export default function Header() {
   const date = new Date();
@@ -34,7 +35,7 @@ export default function Header() {
             aria-selected="false"
           />
           <div className="basis-[10%]">
-            <img src="/search.png" alt="search" />
+            <Image src="/search.png" alt="search" />
           </div>
         </div>
       </div>
