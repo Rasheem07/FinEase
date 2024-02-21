@@ -11,7 +11,11 @@ export default function InputEdit({ label, placeholder, value, property}: { labe
       ...prev,
       [property]: newValue
     }));
-    localStorage.setItem(property, newValue);
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      localStorage.setItem(property, newValue);
+    }
+    
   };
   
   return (

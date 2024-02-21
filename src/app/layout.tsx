@@ -17,8 +17,10 @@ export default function RootLayout({
   const location = usePathname();
 
   useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      router.push("/login");
+    if (typeof window !== "undefined") {
+      if (!localStorage.getItem("token")) {
+        router.push("/login");
+      }
     }
   }, []);
 

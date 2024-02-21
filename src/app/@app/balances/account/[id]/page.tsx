@@ -19,7 +19,10 @@ export default function Page() {
   const [Account, setAccount] = useState<AccountType>({bank: "", type: "",amount: 0,branch: "", accountNo: 0})
 
   useEffect(() => {
-    setAccount({bank: localStorage.getItem('bank') as string, type: localStorage.getItem('type') as string,amount: parseInt(localStorage.getItem('amount') || '0'),branch:  localStorage.getItem('branch') as string, accountNo: parseInt(localStorage.getItem('accountNo') || '0')})
+    if (typeof window !== 'undefined') {
+      // Access localStorage here 
+      setAccount({bank: localStorage.getItem('bank') as string, type: localStorage.getItem('type') as string,amount: parseInt(localStorage.getItem('amount') || '0'),branch:  localStorage.getItem('branch') as string, accountNo: parseInt(localStorage.getItem('accountNo') || '0')})
+    }
   }, [])
 
   return (

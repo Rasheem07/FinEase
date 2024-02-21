@@ -7,8 +7,11 @@ export default function Page() {
   const router = useRouter();
 
   useEffect(() => {
-    if(localStorage.getItem('token')){
-      router.push('/')
+    if (typeof window !== 'undefined') {
+      // Access localStorage here 
+      if(localStorage.getItem('token')){
+        router.push('/')
+      }
     }
   }, [])
 
@@ -49,9 +52,12 @@ export default function Page() {
         seterror({ type: json.error.type, message: json.error.message });
       } else {
         seterror({ type: "", message: "" });
-        localStorage.setItem("token", json.authtoken);
-        localStorage.setItem("email", json.newUser.email);
-        localStorage.setItem("name", json.newUser.name);
+        if (typeof window !== 'undefined') {
+          // Access localStorage here    
+          localStorage.setItem("token", json.authtoken);
+          localStorage.setItem("email", json.newUser.email);
+          localStorage.setItem("name", json.newUser.name);
+        }
         setloading(true);
         router.push("/");
       }

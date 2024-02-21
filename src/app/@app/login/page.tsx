@@ -8,8 +8,11 @@ export default function LoginPage() {
   const router = useRouter();
 
 useEffect(() => {
-  if(localStorage.getItem('token')){
-    router.push('/')
+  if (typeof window !== 'undefined') {
+    // Access localStorage here 
+    if(localStorage.getItem('token')){
+      router.push('/')
+    }
   }
 }, [])
 
@@ -35,10 +38,13 @@ useEffect(() => {
       setError({ type: json.error.type, message: json.error.message });
     } else {
       setError({ type: "", message: "" });
-      localStorage.setItem("token", json.authtoken);
-      localStorage.setItem("email", json.user.email);
-      localStorage.setItem("name", json.user.name);
-      router.push('/')
+      if (typeof window !== 'undefined') {
+        // Access localStorage here      
+        localStorage.setItem("token", json.authtoken);
+        localStorage.setItem("email", json.user.email);
+        localStorage.setItem("name", json.user.name);
+      }
+        router.push('/')
     }
   };
 

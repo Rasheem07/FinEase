@@ -52,23 +52,29 @@ export default function BalanceCardDetailed({
       accountNo,
       amount,
     });
-    localStorage.setItem("accountID", id);
-    localStorage.setItem("bank", bank);
-    localStorage.setItem("branch", branch);
-    localStorage.setItem("type", type);
-    localStorage.setItem("accountNo", accountNo.toString());
-    localStorage.setItem("amount", amount.toString());
-  };
+    if (typeof window !== 'undefined') {
+      // Access localStorage here  
+      localStorage.setItem("accountID", id);
+      localStorage.setItem("bank", bank);
+      localStorage.setItem("branch", branch);
+      localStorage.setItem("type", type);
+      localStorage.setItem("accountNo", accountNo.toString());
+      localStorage.setItem("amount", amount.toString());
+    }
+    };
 
   useEffect(() => {
-    localStorage.setItem("accountID", accountDetails.id);
-    localStorage.setItem("bank", accountDetails.bank);
-    localStorage.setItem("branch", accountDetails.branch);
-    localStorage.setItem("type", accountDetails.type);
-    localStorage.setItem("accountNo", accountDetails.accountNo.toString());
-    localStorage.setItem("amount", accountDetails.amount.toString());
-  }, [accountDetails]);
-  
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      localStorage.setItem("accountID", accountDetails.id);
+      localStorage.setItem("bank", accountDetails.bank);
+      localStorage.setItem("branch", accountDetails.branch);
+      localStorage.setItem("type", accountDetails.type);
+      localStorage.setItem("accountNo", accountDetails.accountNo.toString());
+      localStorage.setItem("amount", accountDetails.amount.toString());
+    }
+    }, [accountDetails]);
+    
   
   return (
     <div className=" bg-white shadow-mix1 rounded-md p-4">

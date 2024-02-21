@@ -7,7 +7,11 @@ import Image from "next/image";
 export default function Header() {
   const date = new Date();
 
-  const name = localStorage.getItem("name");
+  let name;
+  if (typeof window !== 'undefined') {
+    // Access localStorage here
+     name = localStorage.getItem("name");
+  }
   
   return (
     <div className="flex flex-row w-full min-h-[70px] bg-transparent justify-between items-center border-b border-gray5">

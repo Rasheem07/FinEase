@@ -13,11 +13,17 @@ export default function Page() {
     const accountNo = parseInt(data.get('account number')?.valueOf() as string);
     const totalAmount = parseFloat(data.get('balance')?.valueOf() as string);
 
+    let authtoken;
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      authtoken= localStorage.getItem('token') as string
+    }
+    
     const response = await fetch('/api/card/addcard', {
       method: "POST",
       headers:{
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token') as string
+        "auth-token": JSON.stringify(authtoken)
       },
       body: JSON.stringify({
         bank, branch, type, accountNo, totalAmount
