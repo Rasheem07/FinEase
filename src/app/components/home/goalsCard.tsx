@@ -8,7 +8,7 @@ export default function GoalsCard() {
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         goals
       </h2>
-      <div className="bg-white text-secondary-color w-[100%] min-w-[325px] min-h-[200px] shadow-mix1 rounded-md p-3 max-w-[325px] max-h-[200px]">
+      <div className="bg-white text-secondary-color w-full min-w-full md:min-w-[325px] min-h-[200px] md:max-w-[325px] max-h-[200px] shadow-mix1 rounded-md p-3">
         <div className="flex flex-row justify-between items-center mx-2 pb-2 border-b border-gray6">
           <h1 className="text-[22px] leading-[32px] text-default-black font-bold">
             $20000

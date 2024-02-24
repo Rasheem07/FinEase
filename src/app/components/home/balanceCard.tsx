@@ -2,11 +2,11 @@ import React from "react";
 
 export default function BalanceCard() {
   return (
-    <div className="basis-1/4 flex flex-col">
+    <div className="w-full flex flex-col">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         total balances
       </h2>
-      <div className="bg-white text-secondary-color w-[100%] min-w-[325px] min-h-[200px] max-w-[325px] max-h-[200px] shadow-mix1 rounded-md p-3">
+      <div className="bg-white text-secondary-color w-full min-w-full md:min-w-[325px] min-h-[200px] md:max-w-[325px] max-h-[200px] shadow-mix1 rounded-md p-3">
         <div className="flex flex-row justify-between items-center mx-2 mb-2 border-b border-gray6">
           <h1 className="text-[22px] leading-[32px] text-default-black font-bold">
             $99999

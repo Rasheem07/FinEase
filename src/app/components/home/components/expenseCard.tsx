@@ -20,12 +20,12 @@ const ExpenseCard: React.FC<ExpenseCardProps> = ({
   className
 }) => {
   return (
-    <div className={`flex flex-row bg-transparent basis-1/4 justify-between ${className}`}>
+    <div className={`flex flex-row bg-transparent justify-between ${className} hover:shadow-md cursor-pointer rounded-sm`}>
       <div className="flex flex-row items-center h-full">
         <div className="flex flex-col items-center justify-center shadow-sm h-full bg-BG1 rounded-lg min-h-[40px] w-[40px]">
           <img src={imgURL} alt="" className="p-2" />
         </div>
-        <div className="flex flex-col mx-3">
+        <div className="flex flex-col mx-2 md:mx-3">
           <p className="text-xs text-gray2 font-medium capitalize">
             {name}
           </p>

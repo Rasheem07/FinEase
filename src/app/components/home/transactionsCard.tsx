@@ -7,7 +7,7 @@ export default function TransactionsCard() {
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         recent transactions
       </h2>
-      <div className="bg-white text-secondary-color w-[100%] min-w-[325px] min-h-[542px] max-w-[325px] max-h-[542px] shadow-mix1 rounded-md flex flex-col p-5">
+      <div className="bg-white text-secondary-color w-full min-w-full md:min-w-[325px] min-h-[542px] md:max-w-[325px] max-h-[542px] shadow-mix1 rounded-md flex flex-col p-5">
         <div className="flex flex-row justify-between items-center">
           <div className="min-w-[58px] flex flex-row justify-center">
             <span className="text-[16px] leading-[24px] text-center font-bold border-b-[3px] border-primary-color capitalize py-1 px-2 rounded-[2px]">

@@ -6,18 +6,18 @@ import HR from "../hr";
 
 export default function ExpensesCard() {
   return (
-    <div className="w-full">
+    <div className=" w-full max-w-[90vw]">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         expenses breakdown
       </h2>
-      <div className="flex flex-row justify-center items-center w-full min-h-[200px] bg-white text-secondary-color shadow-mix1 rounded-md px-6">
-        <div className="flex flex-row flex-wrap justify-around ">
+      <div className=" max-w-[90vw] w-full min-h-[200px] bg-white text-secondary-color shadow-mix1 rounded-md lg:px-6">
+        <div className=" divide-gray5 grid grid-cols-2 md:grid-cols-3 grid-flow-row gap-2 md:gap-4 lg:gap-5 py-3">
           <ExpenseCard
             imgURL="gamepad.png"
             name="housing"
             amount={150}
             rate={15}
-            className="border-r border-gray6 px-4 py-2"
+            className="px-4 py-2"
             Arrow={<ArrowDownwardIcon className="max-h-4 max-w-4 mx-2 text-green" />}
           />
           <ExpenseCard
@@ -25,7 +25,7 @@ export default function ExpensesCard() {
             name="housing"
             amount={150}
             rate={15}
-            className="border-r border-gray6 px-4 py-2"
+            className="px-4 py-2"
             Arrow={<ArrowDownwardIcon className="max-h-4 max-w-4 mx-2 text-green" />}
           />
           <ExpenseCard
@@ -36,13 +36,13 @@ export default function ExpensesCard() {
             className="px-4 py-2"
             Arrow={<ArrowUpwardIcon className="max-h-4 max-w-4 mx-2 text-red" />}
           />
-          <HR />
+          {/* <HR /> */}
           <ExpenseCard
             imgURL="gamepad.png"
             name="housing"
             amount={150}
             rate={15}
-            className="border-r border-gray6 px-4 py-2"
+            className="px-4 py-2"
             Arrow={<ArrowDownwardIcon className="max-h-4 max-w-4 mx-2 text-green" />}
           />
           <ExpenseCard
@@ -50,7 +50,7 @@ export default function ExpensesCard() {
             name="housing"
             amount={150}
             rate={15}
-            className="border-r border-gray6 px-4 py-2"
+            className="px-4 py-2"
             Arrow={<ArrowUpwardIcon className="max-h-4 max-w-4 mx-2 text-red" />}
           />
           <ExpenseCard

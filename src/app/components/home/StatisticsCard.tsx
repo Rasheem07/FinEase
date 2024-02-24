@@ -3,16 +3,16 @@ import HR from "../hr";
 
 export default function StatisticsCard() {
   return (
-    <div className="w-full">
+    <div className="w-full max-w-[90vw] hidden md:block">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         statistics
       </h2>
-      <div className="w-full min-h-[250px] bg-white text-secondary-color shadow-mix1 rounded-md py-3 px-6">
+      <div className="w-full min-h-[250px] bg-white text-secondary-color shadow-mix1 rounded-md py-2 px-4 md:py-3 md:px-6">
         <div className="flex flex-row items-center justify-between px-1">
           <select
             name="comparisontime"
             id="comparisontime"
-            className="text-[16px] leading-[24px] font-bold capitalize text-default-black outline-none"
+            className="text-[16px] bg-transparent leading-[24px] font-bold capitalize text-default-black outline-none"
           >
             <option value="">monthly comparison</option>
             <option value="">weekly comparison</option>

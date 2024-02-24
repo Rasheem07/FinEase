@@ -14,9 +14,11 @@ const AppContextProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const [accountDetails, setaccountDetails] = useState<AccountDetails>({bank: "", type: "",amount: 0, branch: "", accountNo: 0});
+  const [isNav, setisNav] = useState<boolean>(false);
+  const [isModal, setIsModal] = useState(false);
 
   return (
-    <AppContext.Provider value={{ accountDetails, setaccountDetails}}>
+    <AppContext.Provider value={{ accountDetails, setaccountDetails, isNav, setisNav,isModal, setIsModal}}>
       {children}
     </AppContext.Provider>
   );

@@ -45,15 +45,15 @@ export default function Page() {
     }
   };
   return (
-    <div className="min-h-[80vh] max-w-[75vw] my-2 mx-auto flex flex-col">
+    <div className="max-w-[90vw] md:max-w-[75vw] my-2 mx-auto flex flex-col">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         account details
       </h2>
       <form
         action={handleCreateAccount}
-        className="p-4 flex-auto min-w-full max-h-[42vh] bg-white shadow-mix1 rounded-[4px]"
+        className="p-4 flex-auto min-w-full bg-white shadow-mix1 rounded-[4px]"
       >
-        <div className="grid grid-cols-3 grid-flow-row">
+        <div className="grid md:grid-cols-3 grid-cols-1  grid-flow-row">
           <InputEdit
             label="bank"
             placeholder="Enter the bank name"
@@ -91,7 +91,7 @@ export default function Page() {
         </div>
         <button
           type="submit"
-          className="py-2 px-6 bg-primary-color text-white text-sm my-2 font-semibold uppercase rounded-[4px] shadow-md"
+          className="py-2 px-6 bg-primary-color text-white text-sm mt-6 mb-2 md:my-2 font-semibold uppercase rounded-[4px] shadow-md"
         >
           save changes
         </button>

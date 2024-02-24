@@ -2,7 +2,7 @@
 import "./globals.css";
 import SideNav from "./components/sideNav";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Header from "./components/header";
 import { AppContextProvider } from "./contexts/cardContext";
 
@@ -17,11 +17,9 @@ export default function RootLayout({
   const location = usePathname();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
       if (!localStorage.getItem("token")) {
         router.push("/login");
       }
-    }
   }, []);
 
   return (
@@ -33,7 +31,7 @@ export default function RootLayout({
       </head>
       <body>
         <AppContextProvider>
-          <main className="flex flex-row m-0 p-0 min-h-[100vh] max-w-[100vw] min-w-[100vw] basis-full transition-transform">
+          <main className="flex flex-row m-0 p-0 min-h-[100vh] max-w-[100vw] min-w-[100vw] transition-transform ">
             {location !== "/signup" && location !== "/login" && <SideNav />}
             <div className=" min-h-[100vh] bg-mainBG flex-auto ">
               {location !== "/signup" && location !== "/login" && <Header />}

@@ -1,6 +1,6 @@
 "use client"
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
 import GridViewIcon from '@mui/icons-material/GridView';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import CompareArrowsIcon from '@mui/icons-material/CompareArrows';
@@ -12,6 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Link from "next/link";
 import Image from "next/image";
+import { AppContext } from "../contexts/cardContext";
 
 export default function SideNav() {
   const router = useRouter();
@@ -20,11 +21,7 @@ export default function SideNav() {
   const activeStyles = "bg-primary-color text-white";
   const iconStyles = "mx-1 p-1";
 
-  let name; 
-  if (typeof window !== 'undefined') {
-    // Access localStorage here
-    name = localStorage.getItem('name');
-  }
+  const name = localStorage.getItem('name') as string;
   
   const handleLogout = () => {
   if (typeof window !== 'undefined') {
@@ -33,8 +30,17 @@ export default function SideNav() {
     router.push('/login');
   }
 
+  const {isNav, setisNav} = useContext(AppContext);
+
+  if(isNav){
+    document.body.style.overflowY= "hidden"
+  }else{
+    document.body.style.overflowY= "scroll"
+  }
+
   return (
-    <div className="md:flex hidden flex-col bg-default-black min-h-[100vh] shadow-inner px-3 py-8 min-w-[17vw] max-w-[18vw]">
+    <div className={`md:flex ${isNav? 'flex' : 'hidden'} flex-col bg-default-black min-h-[100vh] shadow-inner px-3 py-8 min-w-[70vw] max-w-[70vw] md:min-w-[17vw] md:max-w-[18vw] z-20 absolute md:relative`}>
+      <button onClick={() => setisNav(false)} className="md:hidden text-white bg-blue-400 py-1 px-3">close</button>
       <h1 className="text-white text-xl font-semibold tracking-wide mx-auto">
         FinEase.IO
       </h1>
@@ -76,7 +82,7 @@ export default function SideNav() {
             </button>
            <span className="h-[1.5px] bg-secondary-color w-full px-3 my-2"/>
            <div className="flex flex-row items-center my-3 justify-between flex-auto w-full min-w-full">
-             <img src="/logo.png" alt="user" className="h-[30px] w-[30px] object-contain shadow-sm rounded-full" />
+             <img src="/logo.jpg" alt="user" className="h-[30px] w-[30px] object-contain shadow-sm rounded-full" />
              <div className="flex flex-col flex-auto justify-between mx-3">
                 <h3 className="text-[14px] leading-4 text-gray4 tracking-wide capitalize font-medium block cursor-pointer">{name}</h3>
                 <span className="cursor-pointer text-[12px] text-gray3 font-sans">edit profile</span>

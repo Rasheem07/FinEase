@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/hello.js", "src/app/api/card/fetchcards/route.rts", "src/app/contexts/cardContextProvider.ts", "src/app/contexts/cardContext.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/api/hello.js", "src/app/api/card/fetchcards/route.rts", "src/app/contexts/cardContextProvider.ts", "src/app/contexts/cardContext.tsx", "src/app/api/auth/Oauth2/google/route.js"],
   "exclude": ["node_modules"]
 }

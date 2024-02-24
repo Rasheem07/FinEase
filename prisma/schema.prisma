@@ -57,10 +57,10 @@ model transactions {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   item      String
   shop      String
-  date      DateTime
+  date      DateTime @default(now())
   method    String
   amount    Float
-  categroy  String
+  categroy  String @default("all")
   account   Accounts @relation(fields: [accountID], references: [id])
   accountID String   @db.ObjectId
 }

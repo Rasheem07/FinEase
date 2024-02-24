@@ -122,7 +122,7 @@ useEffect(() => {
           <p className="text-md text-secondary-color px-4">or sign in with</p>
           <span className="h-[1px] min-w-[70px] flex-auto bg-gray-300"></span>
         </div>
-        <button className="flex flex-row items-center justify-center px-auto py-2 my-2 border border-[#E4E7EB] shadow-md rounded-[4px] font-normal text-[16px] bg-[#E4E7EB] text-[#4B5768]">
+        <button onClick={() => router.push('/api/auth/Oauth2/google')} className="flex flex-row items-center justify-center px-auto py-2 my-2 border border-[#E4E7EB] shadow-md rounded-[4px] font-normal text-[16px] bg-[#E4E7EB] text-[#4B5768]">
           <img src="Google.png" alt="google" className="object-contain px-2" />
           continue with google
         </button>

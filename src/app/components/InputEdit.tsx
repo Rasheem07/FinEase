@@ -19,7 +19,7 @@ export default function InputEdit({ label, placeholder, value, property}: { labe
   };
   
   return (
-    <div className="flex flex-col max-w-[25vw] my-2">
+    <div className="flex flex-col w-[80%] md:max-w-[25vw] my-2">
       <label
         htmlFor={label}
         className="text-sm text-secondary-color font-semibold capitalize"
@@ -33,7 +33,7 @@ export default function InputEdit({ label, placeholder, value, property}: { labe
         value={value}
         placeholder={placeholder}
         onChange={handleChange}
-        className="text-[16px] leading-[24px] font-medium text-secondary-color px-4 py-2 bg-transparent border mr-8 my-1 outline-none shadow-sm rounded-[4px] placeholder:text-sm placeholder:font-normal placeholder:text-gray3"
+        className="w-full text-[16px] leading-[24px] font-medium text-secondary-color px-4 py-2 bg-transparent border mr-8 my-1 outline-none shadow-sm rounded-[4px] placeholder:text-sm placeholder:font-normal placeholder:text-gray3"
       />
     </div>
   );

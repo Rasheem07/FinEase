@@ -2,11 +2,11 @@ import React from "react";
 
 export default function UpcomingBills() {
   return (
-    <div className="basis-1/4 flex flex-col">
+    <div className=" flex flex-col w-full">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         upcomming bills
       </h2>
-      <div className="bg-white text-secondary-color w-[100%] min-w-[325px] min-h-[200px] max-w-[325px] max-h-[200px] shadow-mix1 rounded-md flex flex-col justify-center items-center">
+      <div className="bg-white text-secondary-color w-[100%] min-w-full md:min-w-[325px] min-h-[200px] md:max-w-[325px] max-h-[200px] shadow-mix1 rounded-md flex flex-col justify-center items-center">
         <div className="flex flex-row items-center my-1 justify-between">
           <div className="flex flex-row items-center">
             <div className="flex flex-col bg-BG1 rounded-md shadow-inner min-w-[44px] min-h-[66px] items-center justify-center">
