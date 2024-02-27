@@ -7,13 +7,18 @@ export default function Balances() {
 
   const [cards, setCards] = useState([]);
 
+  let authtoken: string;
+
+  useEffect(() => {
+   authtoken = localStorage.getItem("token") as string
+  }, [])
   const fetchCards = async () => {
     const response = await fetch("/api/card/fetchcards", {
       cache: "default",
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token") as string,
+        "auth-token": JSON.stringify(authtoken)
       },
     });
     const json = await response.json();

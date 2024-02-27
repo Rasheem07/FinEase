@@ -1,7 +1,7 @@
 "use client"
 import Input from "@/app/components/input";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Page() {
   const router = useRouter();
@@ -13,10 +13,11 @@ export default function Page() {
     const totalAmount = parseFloat(data.get('balance')?.valueOf() as string);
 
     let authtoken;
-    if (typeof window !== 'undefined') {
-      // Access localStorage here
-      authtoken= localStorage.getItem('token') as string
-    }
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        authtoken= localStorage.getItem('token') as string;
+      }
+    }, [])
     
     const response = await fetch('/api/card/addcard', {
       method: "POST",
