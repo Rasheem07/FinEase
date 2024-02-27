@@ -4,6 +4,12 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 export default function Page() {
+  var authtoken: string;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      authtoken= localStorage.getItem('token') as string;
+    }
+  }, [])
   const router = useRouter();
   const handleCreateAccount = async (data: FormData) => {
     const bank =  data.get('bank name')?.valueOf() as string;
@@ -12,12 +18,6 @@ export default function Page() {
     const accountNo = parseInt(data.get('account number')?.valueOf() as string);
     const totalAmount = parseFloat(data.get('balance')?.valueOf() as string);
 
-    let authtoken;
-    useEffect(() => {
-      if (typeof window !== 'undefined') {
-        authtoken= localStorage.getItem('token') as string;
-      }
-    }, [])
     
     const response = await fetch('/api/card/addcard', {
       method: "POST",
