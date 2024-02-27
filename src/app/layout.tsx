@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useContext, useEffect } from "react";
 import Header from "./components/header";
 import { AppContextProvider } from "./contexts/cardContext";
+import Footer from "./components/footer";
 
 export default function RootLayout({
   children,
@@ -38,6 +39,7 @@ export default function RootLayout({
               {location === "/" ? children : app}
             </div>
           </main>
+          <Footer />
         </AppContextProvider>
       </body>
     </html>
