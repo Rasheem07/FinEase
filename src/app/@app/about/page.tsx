@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React from "react";
 
 export default function Page() {
   return (
@@ -6,7 +7,7 @@ export default function Page() {
       <div className="container mx-auto py-8 px-6">
         <h1 className="text-3xl font-bold mb-4">About Our Financial Tracker Web App</h1>
         <p className="text-lg mb-6">
-          Welcome to our financial tracker web app! We're dedicated to helping you manage your finances with ease, security, and peace of mind. Our platform empowers users like you to take control of your financial journey and achieve your goals.
+          Welcome to our financial tracker web app! We&lsquo;re dedicated to helping you manage your finances with ease, security, and peace of mind. Our platform empowers users like you to take control of your financial journey and achieve your goals.
         </p>
         <h2 className="text-2xl font-semibold mb-4">Key Features:</h2>
         <ul className="list-disc list-inside mb-6">
@@ -30,10 +31,10 @@ export default function Page() {
           </li>
         </ul>
         <p className="text-lg">
-          Our financial tracker web app is completely free to use. We're committed to providing a secure and user-friendly platform for managing your finances. Rest assured, we prioritize the security of your data, and we take full responsibility for any issues that may arise.
+          Our financial tracker web app is completely free to use. We&lsquo;re committed to providing a secure and user-friendly platform for managing your finances. Rest assured, we prioritize the security of your data, and we take full responsibility for any issues that may arise.
         </p>
         <p className="text-lg">
-          Join our community today and embark on a journey towards financial empowerment and stability. If you have any questions or concerns, please don't hesitate to contact us. We're here to support you every step of the way. Thank you for choosing our financial tracker web app!
+          Join our community today and embark on a journey towards financial empowerment and stability. If you have any questions or concerns, please don&lsquo;t hesitate to contact us. We&lsquo;re here to support you every step of the way. Thank you for choosing our financial tracker web app!
         </p>
       </div>
     </div>
