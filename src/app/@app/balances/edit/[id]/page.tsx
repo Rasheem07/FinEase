@@ -8,25 +8,25 @@ export default function Page() {
   const { accountDetails } = useContext(AppContext);
   const router = useRouter();
 
-  const handleCreateAccount = async (data: FormData) => {
+  const handleEditAccount = async (data: FormData) => {
     let id, bank, token;
-
+  
     if (typeof window !== "undefined") {
       id = localStorage.getItem("accountID");
       bank = localStorage.getItem("bank") as string;
-      token= localStorage.getItem("token") as string;
+      token = localStorage.getItem("token") as string;
     }
-    
+  
     const branch = data.get("branch")?.valueOf() as string;
     const type = data.get("account")?.valueOf() as string;
     const accountNo = parseInt(data.get("accountNo")?.valueOf() as string);
     const totalAmount = parseFloat(data.get("balance")?.valueOf() as string);
-
+  
     const response = await fetch("/api/card/editcard", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": JSON.stringify(token)
+        "auth-token": JSON.stringify(token),
       },
       body: JSON.stringify({
         id,
@@ -39,18 +39,17 @@ export default function Page() {
     });
     await response.json();
     if (typeof window !== "undefined") {
-      router.push(
-        `/balances/account/${localStorage.getItem("accountNo") as string}`
-      );
+      router.push(`/balances/account/${localStorage.getItem("accountNo") as string}`);
     }
   };
+  
   return (
     <div className="max-w-[90vw] md:max-w-[75vw] my-2 mx-auto flex flex-col">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">
         account details
       </h2>
       <form
-        action={handleCreateAccount}
+        action={handleEditAccount}
         className="p-4 flex-auto min-w-full bg-white shadow-mix1 rounded-[4px]"
       >
         <div className="grid md:grid-cols-3 grid-cols-1  grid-flow-row">

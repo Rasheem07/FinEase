@@ -1,6 +1,4 @@
 "use client";
-import InputEdit from "@/app/components/InputEdit";
-import Input from "@/app/components/input";
 import ReadOnlyInput from "@/app/components/readOnlyInput";
 import { AppContext } from "@/app/contexts/cardContext";
 import Link from "next/link";
@@ -19,11 +17,16 @@ export default function Page() {
   const [Account, setAccount] = useState<AccountType>({bank: "", type: "",amount: 0,branch: "", accountNo: 0})
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Access localStorage here 
-      setAccount({bank: localStorage.getItem('bank') as string, type: localStorage.getItem('type') as string,amount: parseInt(localStorage.getItem('amount') || '0'),branch:  localStorage.getItem('branch') as string, accountNo: parseInt(localStorage.getItem('accountNo') || '0')})
+    if (typeof window !== "undefined") {
+      const bank = localStorage.getItem("bank") || "";
+      const type = localStorage.getItem("type") || "";
+      const amount = parseInt(localStorage.getItem("amount") || "0");
+      const branch = localStorage.getItem("branch") || "";
+      const accountNo = parseInt(localStorage.getItem("accountNo") || "0");
+
+      setAccount({ bank, type, amount, branch, accountNo });
     }
-  }, [])
+  }, []);
 
   return (
     <div className="min-h-[80vh] max-w-[75vw] my-2 mx-auto flex flex-col">

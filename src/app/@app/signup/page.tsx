@@ -20,11 +20,11 @@ export default function Page() {
     message: string;
   }
 
-  const [error, seterror] = useState<Error>({ type: "", message: "" });
-  const [loading, setloading] = useState(false);
+  const [error, setError] = useState<Error>({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleSignup = async (data: FormData) => {
-    setloading(true);
+    setLoading(true);
     //get user details
     const name = data.get("name")?.valueOf();
     const email = data.get("email")?.valueOf();
@@ -46,22 +46,22 @@ export default function Page() {
       const json = await response.json();
       console.log(json);
 
-      setloading(false);
+      setLoading(false);
       //checking whether response is ok and setting error if not
       if (!response.ok) {
-        seterror({ type: json.error.type, message: json.error.message });
+        setError({ type: json.error.type, message: json.error.message });
       } else {
-        seterror({ type: "", message: "" });
+        setError({ type: "", message: "" });
         if (typeof window !== 'undefined') {
           // Access localStorage here    
           localStorage.setItem("token", json.authtoken);
           localStorage.setItem("email", json.newUser.email);
           localStorage.setItem("name", json.newUser.name);
         }
-        setloading(true);
+        setLoading(false);
         router.push("/");
       }
-      setloading(false);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }

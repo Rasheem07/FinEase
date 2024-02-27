@@ -4,12 +4,11 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 export default function Page() {
-  var authtoken: string;
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      authtoken= localStorage.getItem('token') as string;
-    }
-  }, [])
+  let authtoken: string | null = null;
+  if (typeof window !== 'undefined') {
+    authtoken = localStorage.getItem('token');
+  }
+
   const router = useRouter();
   const handleCreateAccount = async (data: FormData) => {
     const bank =  data.get('bank name')?.valueOf() as string;

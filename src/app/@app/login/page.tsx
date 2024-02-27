@@ -20,7 +20,7 @@ useEffect(() => {
   const handleLogin = async (data: FormData) => {
     const email = data.get("email")?.valueOf() as string;
     const password = data.get("password")?.valueOf() as string;
-
+  
     const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: {
@@ -31,9 +31,9 @@ useEffect(() => {
         password: password,
       }),
     });
-
+  
     const json = await response.json();
-
+  
     if (!response.ok) {
       setError({ type: json.error.type, message: json.error.message });
     } else {
@@ -44,9 +44,10 @@ useEffect(() => {
         localStorage.setItem("email", json.user.email);
         localStorage.setItem("name", json.user.name);
       }
-        router.push('/')
+      router.push('/');
     }
   };
+  
 
   interface Error {
     type: string;

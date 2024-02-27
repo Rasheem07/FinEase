@@ -8,8 +8,12 @@ import { AppContext } from "../contexts/cardContext";
 export default function Header() {
   const date = new Date();
 
+  let name;
   const {isNav, setisNav} = useContext(AppContext);
-  const name = localStorage.getItem('name') as string;
+  
+  if(typeof window !== 'undefined'){
+    name = localStorage.getItem('name') as string;
+  }
   
   return (
     <div className="flex flex-row w-full max-w-[100vw] min-h-[60px] md:min-h-[70px] bg-transparent justify-between items-center border-b border-gray5">

@@ -21,7 +21,10 @@ export default function SideNav() {
   const activeStyles = "bg-primary-color text-white";
   const iconStyles = "mx-1 p-1";
 
-  const name = localStorage.getItem('name') as string;
+  let name;
+  if(typeof window !== 'undefined'){
+    name = localStorage.getItem('name') as string;
+  }
   
   const handleLogout = () => {
   if (typeof window !== 'undefined') {

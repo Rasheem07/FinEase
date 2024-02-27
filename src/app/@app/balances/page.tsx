@@ -7,28 +7,33 @@ export default function Balances() {
 
   const [cards, setCards] = useState([]);
 
-  let authtoken: string;
+  const [authtoken, setAuthToken] = useState<string>("");
 
   useEffect(() => {
-   authtoken = localStorage.getItem("token") as string
-  }, [])
+    const token = localStorage.getItem("token");
+    if (token) {
+      setAuthToken(token);
+    }
+  }, []);
+  
   const fetchCards = async () => {
+    if (!authtoken) return; // Ensure authtoken is set
     const response = await fetch("/api/card/fetchcards", {
       cache: "default",
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": JSON.stringify(authtoken)
+        "auth-token": authtoken,
       },
     });
     const json = await response.json();
     setCards(json);
   };
-
+  
   useEffect(() => {
     fetchCards();
-  }, []);
-
+  }, [authtoken]); // Refetch cards whenever authtoken changes
+  
   return (
     <div className="mx-4 my-4">
       <h2 className="text-xl text-gray2 font-medium capitalize my-2 px-1 text-start">

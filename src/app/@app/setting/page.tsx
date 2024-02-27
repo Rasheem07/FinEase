@@ -138,38 +138,59 @@ export default function Page() {
         </>
       ) : (
         <form className="flex flex-col my-6 mx-2 space-y-3">
-            <div className="flex flex-col max-w-[20vw]">
+          <div className="flex flex-col max-w-[20vw]">
             <label
-                htmlFor="password"
-                className="text-md font-bold text-default-black capitalize"
-              >
-                old password
-              </label>
-              <input type="password" name="password" id="password" className="text-md font-medium text-gray2 border-0 border-b border-primary-color border-solid py-1 px-3 mx-1 outline-none" required/>
-            </div>
-            <div className="flex flex-col max-w-[20vw]">
+              htmlFor="password"
+              className="text-md font-bold text-default-black capitalize"
+            >
+              old password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              className="text-md font-medium text-gray2 border-0 border-b border-primary-color border-solid py-1 px-3 mx-1 outline-none"
+              required
+            />
+          </div>
+          <div className="flex flex-col max-w-[20vw]">
             <label
-                htmlFor="newpassword"
-                className="text-md font-bold text-default-black capitalize"
-              >
-                new password
-              </label>
-              <input type="password" name="password" id="newpassword" className="text-md font-medium text-gray2 border-0 border-b border-primary-color border-solid py-1 px-3 mx-1 outline-none" required/>
-            </div>
-            <div className="flex flex-col max-w-[20vw]">
+              htmlFor="newpassword"
+              className="text-md font-bold text-default-black capitalize"
+            >
+              new password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="newpassword"
+              className="text-md font-medium text-gray2 border-0 border-b border-primary-color border-solid py-1 px-3 mx-1 outline-none"
+              required
+            />
+          </div>
+          <div className="flex flex-col max-w-[20vw]">
             <label
-                htmlFor="re-newpassword"
-                className="text-md font-bold text-default-black capitalize"
-              >
-                retype new password
-              </label>
-              <input type="password" name="password" id="re-newpassword" className="text-md font-medium text-gray2 border-0 border-b border-primary-color border-solid py-1 px-3 mx-1 outline-none"  required/>
-            </div>
-            <div className=" max-w-[20vw] pt-4">
-            <button type="submit" className="text-[16px] leading-6 font-semibold rounded-[4px] shadow-md bg-primary-color  text-white uppercase px-4 py-1 focus:ring-2 transition-all">
+              htmlFor="re-newpassword"
+              className="text-md font-bold text-default-black capitalize"
+            >
+              retype new password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="re-newpassword"
+              className="text-md font-medium text-gray2 border-0 border-b border-primary-color border-solid py-1 px-3 mx-1 outline-none"
+              required
+            />
+          </div>
+          <div className="max-w-[20vw] pt-4">
+            <button
+              type="submit"
+              className="text-[16px] leading-6 font-semibold rounded-[4px] shadow-md bg-primary-color text-white uppercase px-4 py-1 focus:ring-2 transition-all"
+            >
               update password
             </button>
-            </div>
+          </div>
         </form>
       )}
     </div>
